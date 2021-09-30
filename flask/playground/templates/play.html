@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Play Ground</title>
+    <style>
+        #container {
+            width: 60%;
+            margin: auto;
+            display: flex;
+            justify-content: flex;
+            flex-wrap: wrap;
+        }
+
+        h1{
+            text-align: center;
+        }
+
+        .blueBox{
+            border: 2px solid black;
+            background-color: {{color}};
+            height: 200px;
+            width: 200px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome!</h1>
+    <div id="container">
+        {% for x in range (0,num) %}
+            <div class="blueBox"></div>
+        {% endfor %}
+    </div>
+</body>
+</html>
