@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{monster_name}}</title> 
+</head>
+<body>
+    <h1>{{monster_name}}</h1>
+    <img src="{{ url_for('static', filename=monster_name + '.jpg') }}" alt="picture of monster">
+    <h2>{{monster_name}} Facts</h2>
+    <table border="1" width = "900">
+        <tr>
+            <th>Title</th>
+            <th>Fact</th>
+        </tr>
+        {%for f in facts %}
+            <tr>
+                <td>{{f["title"]}}</td>
+                <td>{{f["fact"]}}</td>
+            </tr>
+        {% endfor %}
+
+    </table>
+    <a href="/">Back</a>
+</body>
+</html>
