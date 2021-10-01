@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#game_board{
+    width: 80%;
+    margin: 10px auto;
+}
+.row {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.color1 { 
+    background: peachpuff;
+    width: 100px;
+    height: 100px;
+}
+
+.color2 { 
+    background: rebeccapurple;
+    width: 100px;
+    height: 100px;
+}
