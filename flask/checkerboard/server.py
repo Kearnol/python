@@ -6,6 +6,10 @@ app = Flask(__name__)
 def display_checkerboard():
     return render_template("index.html",width=8,height=8)
 
+@app.route("/<int:height>")
+def display_checkerboard_height(height):
+    return render_template("index.html", height=height, width= 8)
+
 @app.route("/<int:width>/<int:height>")
 def display_checkerboard_num(width, height):
     return render_template("index.html", height=height, width=width)
