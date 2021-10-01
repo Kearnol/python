@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote Here</title>
+</head>
+<body>
+    <h1>Favorite Pixar Movie</h1>
+    <form action="/vote" method="POST"> <!-- action tells it what to do when submitted... in this case, redirect to /vote route. -->
+        <label for="name">Name: </label><br>
+        <input type="text" name="name"><br><br> <!-- really important to have the name attribute -->
+        <label for="age">Age:</label><br>
+        <input type="number" name="age" id="age"><br><br>
+        <select name="movie" id="movie">
+            <option hidden selected disabled>Choose Movie</option>
+            <option>Toy Story</option>
+            <option>Monsters Inc</option>
+            <option>The Incredibles</option>
+        </select><br><br>
+        <input type="submit" value="Cast Vote">
+    </form>
+</body>
+</html>

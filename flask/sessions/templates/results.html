@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Results</title>
+</head>
+<body>
+    <h1>The Results:</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Movie</th>
+                <th>Votes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Toy Story</td>
+                <td>{{ session["votes"]["Toy Story"] }}</td>
+            </tr>
+            <tr>
+                <td>Toy Story</td>
+                <td>{{ session["votes"]["Monsters Inc"] }}</td>
+            </tr>
+            <tr>
+                <td>Toy Story</td>
+                <td>{{ session["votes"]["The Incredibles"] }}</td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td>{{ session["votes"]["total"] }}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Movie</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for v in voters %}
+            <tr>
+                <td>{{v["name"]}}</td>
+                <td>{{v["age"]}}</td>
+                <td>{{v["movie"]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/">Vote Again!</a><br>
+    <a href="/clear">Clear Results</a>
+</body>
+</html>
