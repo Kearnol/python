@@ -23,7 +23,6 @@ def vote():
     # session["voters"] = voters
     session["voters"].append(temp_user)
     session["votes"]["total"] += 1
-    # chosen_movie = request.form["movie"]
     session["votes"][temp_user["movie"]] +=1
     session.modified = True # this has to be set to flag the browser that session data was changed. Otherwise it will overlook. 
     return redirect("/results")
