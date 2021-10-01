@@ -15,12 +15,14 @@
 
 .color1 { 
     background: peachpuff;
+    background: {{ color1 }};
     width: 100px;
     height: 100px;
 }
 
-.color2 { 
+.color2 {
     background: rebeccapurple;
+    background: {{ color2 }};
     width: 100px;
     height: 100px;
 }
