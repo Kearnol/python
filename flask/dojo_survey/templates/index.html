@@ -17,28 +17,46 @@
 		<div class="container mt-5">
 			<form action="/process" method="POST">
 				<h2>Dojo Survey</h2>
-				<div class="box my-2">
-                    <label for="name">Your Name:</label>
-                    <input type="text" name="name" />
+				<div class="content_split">
+                        <label for="name">Your Name:</label>
+                        <input type="text" name="name" id="name">
                 </div>
-				<div class="box my-2">
-                    <label for="location">Dojo Location</label>
-                    <input type="text" name="location" />
+                <div class="content_split">
+                    <label for="location">Dojo Location:</label>
+                    <input type="text" name="location" id="location">
                 </div>
-				<div class="box my-2">
-                    <label for="language">Favorite Language:</label>
+                <div class="content_split">
+                    <label for="language" class="lang">Favorite Language:</label>
                     <select name="language" id="language">
-                        <option value="select" hidden selected disabled>Select</option>
-                        <option value="python">Python</option>
+                        <option value="select"></option>>Select</option>
+                        <option value="python" selected>Python</option>
                         <option value="js">JS</option>
                         <option value="css">CSS</option>
                         <option value="mern">M.E.R.N.</option>
                         <option value="java">Java</option>
                     </select>
                 </div>
-                <div class="box my-2">
+                <div class="content_split">
                     <label for="comment">Comments:</label>
-                    <input type="textarea" name="comment" width="300px" height="200px">
+                </div>
+                <textarea name="comment" rows="5"></textarea><br>
+                <p>Preferred contact method:</p>
+                <input type="radio" id="email" name="optin" value="email" checked>
+                <label for="email">Email</label>
+                <input type="radio" id="discord" name="optin" value="discord" checked>
+                <label for="discord">Discord</label>
+                <input type="radio" id="phone" name="optin" value="phone">
+                <label for="email">Phone</label>
+                <p id="preferred">Opt-in</p>
+                <input type="checkbox" id="emailSubscribe" name="subscribe" value="email" checked>
+                <label for="emailSubscribe">Email Distroubtion List</label><br>
+                <input type="checkbox" id="newsletterSubscribe" name="subscribe" value="newsletter" checked>
+                <label for="newsletterSubscribe">Newsletter</label><br>
+                <input type="checkbox" id="exclusiveOffers" name="subscribe" value="exclusives" checked>
+                <label for="exclusiveOffers">Exclusive Offers</label><br>
+                <input type="checkbox" id="none" name="subscribe" value="none" checked>
+                <label for="none">None</label>
+                <div class="flex_center">
                     <button>Submit</button>
                 </div>
 			</form>

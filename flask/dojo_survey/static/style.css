@@ -1,9 +1,16 @@
 .container { 
-    width: 30%;
+    width: 35%;
     margin: auto;
     text-align: left;
     background-color: #333;
     padding: 20px;
+}
+
+.content_split {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0 5px 0;
 }
 
 h2 {
@@ -12,5 +19,55 @@ h2 {
 
 label, p {
     color: white;
-    margin-right: 15px;
+    overflow-wrap: break-word;
+}
+
+button {
+    margin-top: 15px;
+    background-color: gold;
+    color: black;
+    border: 2px solid black;
+    box-shadow: 3px 3px black;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+.lables input {
+    margin: 5px 0 5px 0
+}
+
+select {
+    width: 229.333px;
+    height: 2em;
+}
+
+textarea {
+    width: 100%;
+    margin-bottom:10px;
+}
+
+input[type="radio"]{
+    margin-left: 10px;
+}
+
+.flex_center {
+    display: flex;
+    justify-content: center;
+}
+
+select {
+    background-color: gold;
+    color: black;
+    border: 2px solid black;
+}
+
+#preferred {
+    margin-top: 10px;
+}
+
+strong {
+    text-decoration: underline gold;
+    font-size:larger
 }

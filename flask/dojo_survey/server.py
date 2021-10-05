@@ -9,18 +9,21 @@ def index():
 
 @app.route("/process", methods=["POST"])
 def process():
-    request.form
+    print(request.form)
     session["form"] = {
         "name": request.form["name"],
         "location": request.form["location"],
         "language": request.form["language"],
-        "comment": request.form["comment"]
+        "comment": request.form["comment"],
+        "preferred": request.form["optin"],
+        "subscribe": request.form["subscribe"],
     }
     return redirect("/results")
 
 @app.route("/results")
 def results():
-    return render_template("results.html", name = session["form"]["name"], location = session["form"]["location"], language = session["form"]["language"], comment = session["form"]["comment"])
+    print(session["form"])
+    return render_template("results.html", name = session["form"]["name"], location = session["form"]["location"], language = session["form"]["language"], comment = session["form"]["comment"], preferred = session["form"]["preferred"], subscribe = session["form"]["subscribe"])
 
 if __name__ == "__main__":
     app.run(debug=True)
