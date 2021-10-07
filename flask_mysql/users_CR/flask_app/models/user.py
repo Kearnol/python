@@ -1,4 +1,4 @@
-from mysqlconnection import connectToMySQL
+from flask_app.config.mysqlconnection import connectToMySQL
 from datetime import datetime
 
 class User:
@@ -7,12 +7,8 @@ class User:
         self.first_name = data["first_name"]
         self.last_name = data["last_name"]
         self.email = data["email"]
-        self.created = data["created_at"]
-        self.updated = data["updated_at"]
-
-    def pretty_date(self):
-        return datetime.strftime(self.created, "")
-        
+        self.created = data["created_at"].strftime('%I:%M %p, %B %d, %Y')
+        self.updated = data["updated_at"].strftime('%I:%M %p, %B %d, %Y')
 
     @classmethod
     def insert_user(cls,data):
@@ -32,6 +28,7 @@ class User:
     def get_user(cls,data):
         query = "SELECT * FROM users WHERE id = %(id)s"
         user = connectToMySQL("Users").query_db(query,data)
+        print(user)
         return User(user[0])
     
     @classmethod
