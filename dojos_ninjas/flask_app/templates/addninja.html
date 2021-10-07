@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <title>Add Ninja</title>
+</head>
+<body>
+    <form action="/saveninja" method="POST">
+    <label for="dojo">Dojo:</label>
+    <select name="dojo" id="dojo">
+        {% for dojo in dojos %}
+        <option value="{{dojo.id}}">{{dojo.name}}</option>
+        {% endfor %}
+    </select><br>
+    <label for="first_name"></label>
+    <input type="text" name="first_name" placeholder="First Name"><br>
+    <label for="last_name"></label>
+    <input type="text" name="last_name" placeholder="Last Name"><br>
+    <label for="age"></label>
+    <input type="number" min=0 max=99 name="age" placeholder="age"><br><br>
+    <input type="submit" value="Add Ninja">
+    </form><br>
+    <a href="/"><button>Home 🏠</button> </a>
+</body>
+</html>

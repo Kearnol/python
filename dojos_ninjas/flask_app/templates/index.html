@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+		<title>Dojo Add/Select</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="container_left">
+				<h2>New Dojo</h2>
+				<form action="/adddojo" method="POST">
+					<input type="text" name="name" placeholder="Add a new dojo" />
+					<input class="create" type="submit" value="Create" />
+				</form>
+                <a href="/addninja"><button class="add">Add a Ninja</button></a>
+			</div>
+			<div class="container_right">
+				<h2>All Dojos</h2>
+				<div class="tablediv">
+                    <table class="table table-sm table-striped">
+                        <thead class="table-primary">
+                            <th>Dojos</th>
+                            <th></th>
+                        </thead>
+                        <tbody>
+                            {% for d in dojo%}
+                            <tr>
+                                <td>
+                                    <a href="/dojodisplay/{{d.id}}">{{d.name}}</a>
+                                </td>
+                                <td>
+                                    <a href="/deletedojo/{{d.id}}"><button class="btn btn-danger btn-sm">Delete</button></a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+			</div>
+			<br />
+			
+		</div>
+	</body>
+</html>

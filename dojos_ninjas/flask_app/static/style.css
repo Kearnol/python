@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 60%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container_right {
+    width: 50%;
+    height: 300px;
+}
+.container_left {
+    width: 50%;
+    height: 300px;
+}
+
+.tablediv{
+    border: 2px solid black;
+    width: 80%;
+}
+
+.table {
+    border-color:rgb(62, 60, 60);
+    width:100%;
+}
+
+.add {
+    background-color: rgb(23, 169, 120);
+    border: 2px solid black;
+    box-shadow: 3px 3px black;
+    margin-top: 15px;
+    padding: 5px;
+}
+.create {
+    background-color: rgb(169, 89, 218);
+    border: 2px solid black;
+    box-shadow: 3px 3px black;
+    margin-top: 15px;
+    padding: 3px;
+}
+
+td a { 
+    color:rgb(6, 152, 193);
+}
