@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <title>{{book.title}}</title>
+</head>
+<body>
+    <div class="container">
+        <div class="container_right">
+            <h1>{{book.title}}</h1>
+            <div class="authorBox">
+                {{book.name}}
+                <div class="flex">
+                    <div class="ab-left">
+                        <h3>Authors who Favorite this Book</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for author in book.authors %}
+                                <tr>
+                                    <td>{{author.name}}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="Ab-right">
+                        <h3>Add Book's Favorite</h3>
+                        <form action="/addbookfav/{{book.id}}", method = "POST">
+                            <select name="author" id="author">
+                                <option value="" selected hidden disabled>Pick an Author</option>
+                                {% for author in authors %}
+                                <option value="{{author.id}}">{{author.name}}</option>
+                                {% endfor %}
+                                <input type="submit" value="Add" class="btn">
+                            </select>
+                        </form>
+                    </div>                  
+                </div>
+            </div>
+            <a href="/"><button class="btn">Home</button></a>
+            <a href="/addbook"><button class="btn">Books</button></a>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p class="alert_text">{{message}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}  

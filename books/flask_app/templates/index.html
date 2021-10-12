@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=" {{ url_for('static', filename='style.css') }} ">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+    <title>Books & Authors</title>
+</head>
+<body>
+    <div class="container">
+        <div class="container_left">
+            <h2>Add an Author</h1>
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <p class="alert_text">{{message}}</p>
+                            {% endfor %}
+                        {% endif %}
+					{% endwith %}
+            <form action="/addauthor" method="POST">
+                <label for="author">Author Name:</label>
+                <input type="text" name="name" id="name">
+                <input type="submit" class="btn" value="Create">
+            </form>
+            <a href="/addbook"><button class="btn">Books</button></a>
+        </div>
+        <div class="container_right">
+            <h2>All Authors</h2>
+            <div class="authorBox">
+                {% for author in authors %}
+                    <a href="/showauthor/{{author.id}}">{{author.name}}</a><br>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=" {{ url_for('static', filename='style.css') }} ">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+    <title>Add Book</title>
+</head>
+<body>
+    <div class="container">
+        <div class="container_left">
+            <h2>New Book</h2>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p class="alert_text">{{message}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <form action="/savebook" method="POST">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title"><br>
+                <label for="pages">Num. of Pages</label>
+                <input type="text" name="num_of_pages" id="pages"><br>
+                <input type="submit" value="Create" class="btn">
+        </form>
+        <a href="/"><button class="btn">Home</button></a>
+        </div>
+        <div class="container_right">
+            <h2>All books</h2>
+            <div class="authorBox">
+                <table>
+                    <tr>
+                        <th>Pages</th>
+                        <th>Title</th>
+                    </tr>
+                    {% for book in books %}
+                    <tr>
+                        <td>{{book.num_of_pages}}</td>
+                        <td><a href="/showbook/{{book.id}}">{{book.title}}</a></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
