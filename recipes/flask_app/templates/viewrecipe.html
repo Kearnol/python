@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='style.css') }}"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+			rel="stylesheet"
+		/>
+		<!-- <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" /> -->
+		<title>Welcome</title>
+	</head>
+	<body>
+		<div class="container">
+			{% with messages = get_flashed_messages() %} {% if messages %}
+			<div class="form">
+				<h3 class="message-text">Message</h3>
+				{% for message in messages %}
+				<p class="alert_text">{{message}}</p>
+				{% endfor %}
+			</div>
+			{% endif %} {% endwith %}
+			<div class="form">
+				<h3>User {{session["first_name"]}}</h3>
+				<div class="flex">
+					<a href="/logout"><button class="btn logout">Logout</button></a>
+					<a href="/dashboard"><button class="btn">Dashboard</button></a>
+				</div>
+			</div>
+            <div class="form">
+                <h3>{{recipe.name}}</h3>
+                <div class="whitebox">
+                    <table>
+                        <tr>
+                            <td class="c1">Description:</td>
+                            <td>{{recipe.description}}</td>
+                        </tr>
+                        <tr>
+                            <td class="c1">Under 30 Minutes:</td>
+                            <td>{{recipe.under_30}}</td>
+                        </tr>
+                        <tr>
+                            <td class="c1">Instructions:</td>
+                            <td>{{recipe.instructions}}</td>
+                        </tr>
+                        <tr>
+                            <td class="c1">Date Made:</td>
+                            <td>{{recipe.made_on}}</td>
+                        </tr>
+                    </table>
+                </div>
+			</div>
+		</div>
+		</div>
+	</body>
+</html>

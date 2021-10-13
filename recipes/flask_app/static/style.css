@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+}
+
+body {
+    background-image: url("../static/imgs/space.jpg")
+}
+
+.container{
+    width: 70%;
+    margin: auto;
+}
+
+.form {
+    width: 600px;
+    border: 2px solid rgb(0, 179, 255);
+    background-color: black;
+    color: rgb(60, 239, 131);
+    padding: 30px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.inner_register {
+    width: 80%;
+}
+
+h2 {
+    color: rgb(60, 239, 131);
+    margin-bottom: 10px;
+    text-decoration: underline;
+    text-decoration-color: rgb(60, 239, 131);
+    font-family: "Press Start 2P";
+}
+
+.form h3 {
+    color: rgb(60, 239, 131);
+    margin-bottom: 10px;
+    font-family: "Press Start 2P";
+}
+
+.flex{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+input { 
+    margin-bottom: 12px;
+    width: 80%;
+    height: 1.5em;
+    border-radius: 3px;
+}
+input[type="radio"] {
+    margin-left: 10px;
+    width:auto;
+}
+
+.alert_text {
+    color:goldenrod;
+}
+
+.mini_text {
+    font-size: .7em;
+    margin-left: 20px;
+}
+
+#pass_text {
+    position: relative;
+    top: -10px;
+}
+
+a{
+    color: rgb(216, 47, 216)
+}
+
+a:hover{
+    color: yellow
+}
+
+.btn { 
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+    margin: 10px;
+    margin-bottom:0px;
+    text-align: center;
+    background-color: rgb(0, 0, 0);
+    border: 2px solid rgb(0, 179, 255);
+    color: ghostwhite;
+    font-family: "Press Start 2P";
+    font-size: .6em;
+    display:block;
+    text-decoration: none;
+}
+
+.btn:hover { 
+    background-color: greenyellow;
+    color: black;
+}
+.logout:hover { 
+    background-color: rgb(249, 164, 46);
+    color: black;
+}
+
+.message-text {
+    color: red !important;
+}
+
+th {
+    width: 30%;
+    text-decoration: underline;
+}
+
+.whitebox, .c1 {
+    width: 200px;
+    margin-right: 10px;
+    color: rgb(60, 239, 131); 
+}
+.whitebox, td {
+    width: 400px;
+    margin-right: 10px;
+    color: ghostwhite; 
+}
+
+.center {
+    text-align: center;
+}
+
+input[type="text"], textarea, input[type="date"], input[type="password"]{
+    background-image: url(../static/imgs/space.jpg);
+    color: ghostwhite;
+    margin-bottom: 15px;
+}
+
+input[type="date"]{
+    width: 100px;
+}

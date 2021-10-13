@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='style.css') }}"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+			rel="stylesheet"
+		/>
+		<!-- <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" /> -->
+		<title>Welcome</title>
+	</head>
+	<body>
+		<div class="container">
+			{% with messages = get_flashed_messages() %} {% if messages %}
+			<div class="form">
+				<h3 class="message-text">Message</h3>
+				{% for message in messages %}
+				<p class="alert_text">{{message}}</p>
+				{% endfor %}
+			</div>
+			{% endif %} {% endwith %}
+			<div class="form">
+				<h3>Welcome {{session["first_name"]}}!</h3>
+				<div class="flex">
+					<a href="/logout"><button class="btn logout">Logout</button></a>
+					<a href="/create"><button class="btn">Create</button></a>
+				</div>
+			</div>
+			<div class="form">
+				<table>
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Under 30 Minutes?</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for recipe in recipes %}
+						<tr>
+							<td>{{recipe.name}}</td>
+							<td class="center">{{recipe.under_30}}</td>
+							<td>
+								<a href="/viewrecipe/{{recipe.id}}">View Instructions</a>
+								<a href="/editrecipe/{{recipe.id}}">Edit</a>
+								<a href="/deleterecipe/{{recipe.id}}">Delete</a>
+							</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>			
+	</body>
+</html>
